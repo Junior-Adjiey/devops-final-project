@@ -1,7 +1,7 @@
+
 # Task Management API
 
-A REST API for task management, developed as part of the
-DevOps and Continuous Deployment final project at EFREI Paris.
+A REST API for task management, developed as part of the DevOps and Continuous Deployment final project at EFREI Paris.
 
 ## Tech Stack
 
@@ -25,14 +25,12 @@ DevOps and Continuous Deployment final project at EFREI Paris.
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
-| GET | /tasks | List all tasks |
-| GET | /tasks/{id} | Get a task |
-| POST | /tasks | Create a task |
-| PUT | /tasks/{id} | Update a task |
-| DELETE | /tasks/{id} | Delete a task |
-| GET | /health | Health check |
-
-
+| GET | `/tasks` | List all tasks |
+| GET | `/tasks/{id}` | Get a task by ID |
+| POST | `/tasks` | Create a task |
+| PUT | `/tasks/{id}` | Update a task |
+| DELETE | `/tasks/{id}` | Delete a task |
+| GET | `/health` | Health check |
 
 ## Getting Started
 
@@ -47,11 +45,9 @@ Make sure you have installed:
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/<OWNER>/devops-final-project.git
+git clone https://github.com/Junior-Adjiey/devops-final-project.git
 cd devops-final-project
 ```
-
-Replace `<OWNER>` with the GitHub repository owner.
 
 ### 2. Configure environment variables
 
@@ -75,7 +71,9 @@ Open `.env` and replace `change_me` with your own PostgreSQL password.
 
 ### 3. Start PostgreSQL
 
-Make sure Docker Desktop is running, then execute:
+Make sure Docker Desktop is running.
+
+From the project root, execute:
 
 ```bash
 docker compose up -d
@@ -89,11 +87,31 @@ Set the `POSTGRES_PASSWORD` environment variable to the same password used in `.
 
 For IntelliJ IDEA, add it in:
 
-Run → Edit Configurations → Environment variables
+`Run → Edit Configurations → Environment variables`
+
+Or, if running from Windows PowerShell:
+
+```powershell
+$env:POSTGRES_PASSWORD = "your_password"
+```
+
+On Linux or macOS:
+
+```bash
+export POSTGRES_PASSWORD="your_password"
+```
+
+Replace `your_password` with your actual PostgreSQL password.
 
 ### 5. Run the application
 
-On Windows:
+Navigate to the application directory:
+
+```bash
+cd app
+```
+
+On Windows PowerShell:
 
 ```powershell
 .\mvnw.cmd spring-boot:run
@@ -135,3 +153,5 @@ Content-Type: application/json
   "status": "TODO"
 }
 ```
+
+Available statuses: `TODO`, `IN_PROGRESS`, `DONE`.
